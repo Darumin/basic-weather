@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+    Now displaying local weather in...<br>
+
+        <strong>{{ info['loc'] }}</strong>, located @ ID: {{ info['loc_id'] }}<br>
+        <img src="{{ info.img_url }}" /><br>
+        Status: {{ info['stats'] }}<br>
+        Temperature: {{ info['temp_cels'] }} C° / {{ info['temp_fahr'] }} F°<br>
+        Wind blowing at {{ info['wind'] }} m/s from {{ info['wind_deg'] }}°<br>
+        <br>
+        Sunrise: {{ info['sunrise'] }}<br>
+        Sunset: {{ info['sunset'] }}<br>
+        <em>* Displayed in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> international time standard.</em>
+
+{% endblock %}
