@@ -38,10 +38,8 @@ def display_weather(obs):
     info['temp_fahr'] = w.get_temperature('fahrenheit')['temp']
     info['wind'] = w.get_wind(unit='meters_sec')['speed']
     info['wind_deg'] = w.get_wind()['deg']
-
     info['sunrise'] = w.get_sunrise_time(timeformat='iso')
     info['sunset'] = w.get_sunset_time(timeformat='iso')
-
     info['img_url'] = w.get_weather_icon_url()
 
     return info
