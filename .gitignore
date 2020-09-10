@@ -16,3 +16,7 @@ pyvenv.cfg
 bin/
 include/
 lib/
+
+# Local
+
+bw_secrets.py
