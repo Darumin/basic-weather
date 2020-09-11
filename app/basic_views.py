@@ -1,5 +1,5 @@
 from pyowm import OWM
-from pyowm.exceptions import api_response_error as err
+from pyowm.commons.exceptions import NotFoundError
 
 from flask import Flask, render_template, request
 
@@ -17,6 +17,7 @@ def index():
 
 @app.route('/search_city', methods=['POST'])
 def search_city():
+    manager = owm.weather_manager()
     location: str = request.form['loc']
 
     if location == '':
@@ -24,8 +25,8 @@ def search_city():
         return render_template('index.html', error=e)
 
     try:
-        observation = owm.weather_at_place(location)
-    except err.NotFoundError:
+        observation = manager.weather_at_place(location)
+    except NotFoundError:
         e = 'Entry not in registry. Please check your input.'
         return render_template('index.html', error=e)
 

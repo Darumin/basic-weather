@@ -2,15 +2,20 @@
 {% block content %}
 
     Now displaying local weather in...<br>
+    <strong>{{ info['location']['name'] }}</strong>,
+        located @ ID: {{ info['location']['ID'] }}<br>
 
-        <strong>{{ info['loc'] }}</strong>, located @ ID: {{ info['loc_id'] }}<br>
-        <img src="{{ info.img_url }}" /><br>
-        Status: {{ info['stats'] }}<br>
-        Temperature: {{ info['temp_cels'] }} C° / {{ info['temp_fahr'] }} F°<br>
-        Wind blowing at {{ info['wind'] }} m/s from {{ info['wind_deg'] }}°<br>
-        <br>
-        Sunrise: {{ info['sunrise'] }}<br>
-        Sunset: {{ info['sunset'] }}<br>
-        <em>* Displayed in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> international time standard.</em>
+    <img src="{{ info['icon_url'] }}" width="50" height="50"><br>
+
+    Status: {{ info['weather']['detailed_status'] }}<br>
+    Temperature: {{ info['temperature']['temp'] }} F°<br>
+    Wind blowing at {{ info['weather']['wind']['speed'] }} m/s
+        from {{ info['weather']['wind']['deg'] }}°<br><br>
+
+    Sunrise: {{ info['sunrise_time']}}<br>
+    Sunset: {{ info['sunset_time'] }}<br>
+    <em>* Displayed in
+        <a href="https://en.wikipedia.org/wiki/ISO_8601">
+            ISO 8601</a> international time standard.</em>
 
 {% endblock %}
