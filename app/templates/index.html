@@ -2,7 +2,10 @@
 {% block content %}
 
     <h2>Weather Basic</h2>
-    Start by entering a city name into search field below.<br>
+    Start by entering a city name into search field below. You can search<br>
+    for a city using a query like "London, GB", where GB stands for Great<br>
+    Britain. This "City, Country Code" method does not work for US states.<br>
+    <br>
     <br>
     <form action="/search_city" method="POST">
         <label for="loc">Search Location:</label><br>
@@ -10,5 +13,11 @@
         <input type="submit" value="Submit"><br>
     </form><br>
     <em>{{ error }}</em>
+    <br>
+    <br>
+
+    {% for entry in multi %}
+        {{ entry }}<br>
+    {% endfor %}
 
 {% endblock %}
