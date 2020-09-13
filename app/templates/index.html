@@ -2,9 +2,12 @@
 {% block content %}
 
     <h2>Weather Basic</h2>
-    Start by entering a city name into search field below. You can search<br>
-    for a city using a query like "London, GB", where GB stands for Great<br>
-    Britain. This "City, Country Code" method does not work for US states.<br>
+        <p align=left>
+        Start by entering a city name into search field below. You can search
+        for a city using a "City Name, Country Code" query like "London, GB",
+        where GB stands for Great Britain. To specify a US state, queries must be
+        formatted like "San Diego, CA, US" due to the nature of the OpenWeather API.
+        </p>
     <br>
     <br>
     <form action="/search_city" method="POST">
