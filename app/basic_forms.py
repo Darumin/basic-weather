@@ -1,10 +1,15 @@
-def display_weather(obs) -> dict:
+def format_weather_data(obs) -> dict:
     info: dict = obs.to_dict()
     conversion: dict = {
-        'temperature': obs.weather.temperature(unit='fahrenheit'),
+        'temperature': obs.weather.temperature(unit='fahrenheit')['temp'],
         'sunrise_time': obs.weather.sunrise_time(timeformat='date'),
         'sunset_time': obs.weather.sunset_time(timeformat='date'),
-        'icon_url': obs.weather.weather_icon_url()
+        'icon_url': obs.weather.weather_icon_url(),
+        'visibility': info['weather']['visibility_distance'],
+        'pressure': info['weather']['pressure']['press'],
+        'status': info['weather']['detailed_status'],
+        'wind_speed': info['weather']['wind']['speed'],
+        'wind_dir': info['weather']['wind']['deg']
     }
 
     info.update(conversion)

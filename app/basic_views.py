@@ -6,6 +6,7 @@ from flask import Flask, render_template, request
 
 from app.bw_secrets import API_KEY
 from app import basic_forms as bf
+from app.helpers import print_weather_data
 
 owm = OWM(API_KEY)
 app = Flask(__name__)
@@ -41,7 +42,8 @@ def search_city():
         return render_template('index.html', multi=multi, error=e)
     else:
         # if single entry, then proceed with weather report
-        info = bf.display_weather(observation)
+        info = bf.format_weather_data(observation)
+        print_weather_data(info)
         return render_template('weather.html', info=info)
 
 
